@@ -26,17 +26,23 @@
        do (incf depth))
     depth))
 
+(defun step-size (depth)
+  "Returns the offset step size, given 'depth'."
+  (expt 2 (1+ depth)))
+
 (defun offset (index)
   "Returns the offset of an index."
   (let* ((d (depth index))
-         (step (expt 2 (1+ d))))
+         (step (step-size d)))
     (decf index (1- (expt 2 d)))
     (/ index step)))
 
 (defun sibling (index)
   "Returns the index of this element's sibling."
-  )
+  (if (evenp (offset index))
+      (+ index (step-size (depth index)))
+      (- index (step-size (depth index)))))
 
 (defun parent (index)
   "Returns the index of the parent element in tree."
-  )
+  (/ (+ index (sibling index)) 2))
