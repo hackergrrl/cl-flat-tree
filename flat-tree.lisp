@@ -46,3 +46,10 @@
 (defun parent (index)
   "Returns the index of the parent element in tree."
   (/ (+ index (sibling index)) 2))
+
+(defun children (index)
+  "Returns a list (leftChild rightChild) with the indexes of this element's children. If this element does not have any children it returns NIL."
+  (let* ((d (depth index))
+         (step (/ (step-size (1- d)) 2)))
+    (if (= d 0) nil
+        (list (- index step) (+ index step)))))
