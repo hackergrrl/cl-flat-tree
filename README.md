@@ -5,7 +5,7 @@ Map a binary tree to a list. Common Lisp implementation, adapted from
 
 ## API
 
-- [Documentation](./api.html)
+- [Documentation](https://raw.githubusercontent.com/noffle/cl-flat-tree/master/api.html)
 
 ## Usage
 ```lisp
