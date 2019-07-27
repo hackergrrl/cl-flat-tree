@@ -141,3 +141,20 @@ x;;               7
     (incf (iterator-index iter) (/ (step-size (iterator-depth iter)) 2))
     (setf (iterator-offset iter) (1+ (* (iterator-offset iter) 2)))
     (setf (iterator-step-size iter) (step-size (iterator-depth iter)))))
+
+(defun iterator-left-span (iter)
+  "Move the iterator to the current left span index."
+  (multf (iterator-offset iter) (expt 2 (iterator-depth iter)))
+  (decf (iterator-index iter)
+        (1- (expt 2 (iterator-depth iter))))
+  (setf (iterator-depth iter) 0)
+  (setf (iterator-step-size iter) 2))
+
+(defun iterator-right-span (iter)
+  "Move the iterator to the current right span index."
+  (dotimes (n (iterator-depth iter))
+    (setf (iterator-offset iter) (1+ (* (iterator-offset iter) 2))))
+  (incf (iterator-index iter)
+        (1- (expt 2 (iterator-depth iter))))
+  (setf (iterator-depth iter) 0)
+  (setf (iterator-step-size iter) 2))
