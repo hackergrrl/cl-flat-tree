@@ -71,3 +71,18 @@
 (defun counts (index)
   "Returns how many nodes (including parent nodes) a tree contains."
   (1- (expt 2 (1+ (depth index)))))
+
+(defun full-roots (index)
+  (when (not (evenp index)) (error "You can only look roots for depth=0 nodes"))
+  (setf index (/ index 2))
+  (let ((result nil)
+        (offset 0)
+        (factor 1))
+    (loop until (= index 0)
+       do (progn
+            (loop while (<= (* factor 2) index) do (setf factor (* factor 2)))
+            (push (+ offset factor -1) result)
+            (incf offset (* 2 factor))
+            (decf index factor)
+            (setf factor 1)))
+    (nreverse result)))
