@@ -53,3 +53,8 @@
          (step (/ (step-size (1- d)) 2)))
     (if (= d 0) nil
         (list (- index step) (+ index step)))))
+
+(defun spans (index)
+  "Returns the range (inclusive) that the tree rooted at 'index' spans. For example (spans 3) would return (0 6)."
+  (let ((step (1- (expt 2 (depth index)))))
+    (list (- index step) (+ index step))))
