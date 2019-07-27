@@ -133,3 +133,11 @@ x;;               7
     (decf (iterator-index iter) (/ (step-size (iterator-depth iter)) 2))
     (multf (iterator-offset iter) 2)
     (setf (iterator-step-size iter) (step-size (iterator-depth iter)))))
+
+(defun iterator-right-child (iter)
+  "Move the iterator to its right child. No change if there is no child."
+  (when (> (iterator-depth iter) 0)
+    (decf (iterator-depth iter))
+    (incf (iterator-index iter) (/ (step-size (iterator-depth iter)) 2))
+    (setf (iterator-offset iter) (1+ (* (iterator-offset iter) 2)))
+    (setf (iterator-step-size iter) (step-size (iterator-depth iter)))))
