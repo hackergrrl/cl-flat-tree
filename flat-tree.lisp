@@ -67,3 +67,7 @@
 (defun spans (index)
   "Returns the range (inclusive) that the tree rooted at 'index' spans. For example (spans 3) would return (0 6)."
   (list (left-span index) (right-span index)))
+
+(defun counts (index)
+  "Returns how many nodes (including parent nodes) a tree contains."
+  (1- (expt 2 (1+ (depth index)))))
