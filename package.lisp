@@ -1,2 +1,31 @@
 (defpackage #:flat-tree
-  (:use #:cl))
+  (:use #:cl)
+  (:export
+   index
+   depth
+   offset
+   sibling
+   parent
+   children
+   left-span
+   right-span
+   spans
+   counts
+   full-roots
+   make-iterator
+   iterator-index
+   iterator-step-size
+   iterator-offset
+   iterator-depth
+   iterator-p
+   iterator-next
+   iterator-prev
+   iterator-seek
+   iterator-parent
+   iterator-left-child
+   iterator-right-child
+   iterator-left-span
+   iterator-right-span
+   iterator-is-left?
+   iterator-is-right?
+   iterator-is-sibling))
