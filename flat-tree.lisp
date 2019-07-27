@@ -1,4 +1,4 @@
-x;;               7 
+;;               7 
 ;;       3                11
 ;;   1       5       9          13
 ;; 0   2   4   6   8   10   12     14
@@ -158,3 +158,21 @@ x;;               7
         (1- (expt 2 (iterator-depth iter))))
   (setf (iterator-depth iter) 0)
   (setf (iterator-step-size iter) 2))
+
+(defun iterator-is-left? (iter)
+  "Is the iterator at a left sibling?"
+  (evenp (iterator-offset iter)))
+
+(defun iterator-is-right? (iter)
+  "Is the iterator at a right sibling?"
+  (not (iterator-is-left? iter)))
+
+(defun iterator-sibling (iter)
+  "Move the iterator to its sibling."
+  (if (iterator-is-left? iter)
+      (progn
+        (incf (iterator-offset iter))
+        (incf (iterator-index iter) (step-size (iterator-depth iter))))
+      (progn
+        (decf (iterator-offset iter))
+        (decf (iterator-index iter) (step-size (iterator-depth iter))))))
