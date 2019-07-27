@@ -1,4 +1,4 @@
-;;               7 
+x;;               7 
 ;;       3                11
 ;;   1       5       9          13
 ;; 0   2   4   6   8   10   12     14
@@ -7,6 +7,10 @@
 (defpackage :flat-tree (:use cl))
 
 (in-package :flat-tree)
+
+(defmacro multf (place amt)
+  "Like 'incf', but for multiplication."
+  `(setf ,place (* ,place ,amt)))
 
 (defun index (depth offset)
   "Returns an array index for the tree element at the given depth and offset."
@@ -121,3 +125,11 @@
                                  2))
   (setf (iterator-offset iter) (floor (/ (iterator-offset iter) 2)))
   (setf (iterator-step-size iter) (* 2 (iterator-step-size iter))))
+
+(defun iterator-left-child (iter)
+  "Move the iterator to its left child. No change if there is no child."
+  (when (> (iterator-depth iter) 0)
+    (decf (iterator-depth iter))
+    (decf (iterator-index iter) (/ (step-size (iterator-depth iter)) 2))
+    (multf (iterator-offset iter) 2)
+    (setf (iterator-step-size iter) (step-size (iterator-depth iter)))))
