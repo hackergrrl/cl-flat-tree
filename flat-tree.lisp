@@ -54,7 +54,16 @@
     (if (= d 0) nil
         (list (- index step) (+ index step)))))
 
+(defun left-span (index)
+  "Returns the left spanning in index in the tree index spans."
+  (let ((step (1- (expt 2 (depth index)))))
+    (- index step)))
+
+(defun right-span (index)
+  "Returns the right spanning in index in the tree index spans."
+  (let ((step (1- (expt 2 (depth index)))))
+    (+ index step)))
+
 (defun spans (index)
   "Returns the range (inclusive) that the tree rooted at 'index' spans. For example (spans 3) would return (0 6)."
-  (let ((step (1- (expt 2 (depth index)))))
-    (list (- index step) (+ index step))))
+  (list (left-span index) (right-span index)))
