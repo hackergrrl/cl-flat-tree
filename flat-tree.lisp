@@ -49,7 +49,8 @@
   (/ (+ index (sibling index)) 2))
 
 (defun children (index)
-  "Returns a list (leftChild rightChild) with the indexes of this element's children. If this element does not have any children it returns NIL."
+  "Returns a list (leftChild rightChild) with the indexes of this element's children.
+If this element does not have any children it returns NIL."
   (let* ((d (depth index))
          (step (/ (step-size (1- d)) 2)))
     (if (= d 0) nil
@@ -66,7 +67,8 @@
     (+ index step)))
 
 (defun spans (index)
-  "Returns the range (inclusive) that the tree rooted at 'index' spans. For example (spans 3) would return (0 6)."
+  "Returns the range (inclusive) that the tree rooted at 'index' spans.
+For example (spans 3) would return (0 6)."
   (list (left-span index) (right-span index)))
 
 (defun counts (index)
@@ -74,6 +76,9 @@
   (1- (expt 2 (1+ (depth index)))))
 
 (defun full-roots (index)
+  "Returns a list of all the full roots (subtrees where all nodes have either 2 or 0 children) < index.
+
+For example (full-roots 8) returns (3), since the subtree rooted at 3 spans 0 -> 6 and the tree rooted at 7 has a child located at 9 which is >= 8."
   (when (not (evenp index)) (error "You can only look roots for depth=0 nodes"))
   (setf index (/ index 2))
   (let ((result nil)
@@ -95,15 +100,18 @@
   (depth 0))
 
 (defun iterator-next (iter)
+  "Move one step right across the tree, at the current depth."
   (incf (iterator-index iter) (iterator-step-size iter))
   (incf (iterator-offset iter)))
 
 (defun iterator-prev (iter)
+  "Move one step left across the tree, at the current depth."
   (when (> (iterator-offset iter) 0)
     (decf (iterator-index iter) (iterator-step-size iter))
     (decf (iterator-offset iter))))
   
 (defun iterator-seek (iter index)
+  "Move the iterator to a specific index."
   (let* ((d (depth index))
          (step (step-size d)))
     (setf (iterator-index iter) index)
@@ -112,6 +120,7 @@
     (setf (iterator-depth iter) d)))
 
 (defun iterator-parent (iter)
+  "Move the iterator to its parent."
   (incf (iterator-depth iter))
   (setf (iterator-index iter) (/ (+ (iterator-index iter)
                                     (if (evenp (iterator-offset iter))
