@@ -1,0 +1,81 @@
+<!DOCTYPE html> <html xmlns="http://www.w3.org/1999/xhtml"> <head> <meta charset="utf-8"> <title>Flat-Tree</title> <meta name="viewport" content="width=device-width"> <meta name="description" content="A flat-tree implementation in Common Lisp."> <meta name="author" content="noffle &lt;sww@eight45.net&gt;"> <style type="text/css"> body{
+          max-width: 1024px;
+          margin: 0 auto 0 auto;
+          font-family: sans-serif;
+          color: #333333;
+          font-size: 14pt;
+          padding: 5px;
+      }
+      body>header{
+          display:flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          max-width: 100%;
+          text-align: center;
+      }
+      body>header img{
+          max-width: 50%;
+      }
+      img{
+          max-width: 100%;
+          max-height: 100%;
+      }
+      code{
+          font-family: Consolas, Inconsolata, monospace;
+      }
+      a{
+          text-decoration: none;
+          color: #0055AA;
+      }
+      a img{
+          border: none;
+      }
+      #documentation{
+          text-align: justify;
+      }
+      #documentation pre{
+          margin-left: 20px;
+          overflow: auto;
+      }
+      #documentation img{
+          margin: 5px;
+      }
+      #symbol-index>ul{
+          list-style: none;
+          padding: 0;
+      }
+      #symbol-index .package>ul{
+          list-style: none;
+          padding: 0 0 0 10px;
+      }
+      #symbol-index .package .nicknames{
+          font-weight: normal;
+      }
+      #symbol-index .package h4{
+          display: inline-block;
+          margin: 0;
+      }
+      #symbol-index .package article{
+          margin: 0 0 15px 0;
+      }
+      #symbol-index .package article header{
+          font-size: 1.2em;
+          font-weight: normal;
+      }
+      #symbol-index .package .name{
+          margin-right: 5px;
+      }
+      #symbol-index .package .docstring{
+          margin: 0 0 0 15px;
+          white-space: pre-wrap;
+          font-size: 12pt;
+      }
+      @media (max-width: 800px){
+          body{font-size: 12pt;}
+      } </style> </head> <body> <header> <h1>flat-tree</h1> <span class="version">0.0.1</span> <p class="description">A flat-tree implementation in Common Lisp.</p> </header> <main> <article id="symbol-index"> <h2>Package Index</h2> <ul><li class="package"> <h3> <a name="FLAT-TREE" href="#FLAT-TREE">FLAT-TREE</a> <span class="nicknames"></span> </h3> <ul><li> <a name="FLAT-TREE:ITERATOR-DEPTH"> </a> <article id="ACCESSOR FLAT-TREE:ITERATOR-DEPTH"> <header class="accessor"> <span class="type">accessor</span>  <code>(</code><h4 class="name"><code><a href="#ACCESSOR%20FLAT-TREE%3AITERATOR-DEPTH">ITERATOR-DEPTH</a></code></h4> <code class="qualifiers"></code> <code class="arguments">INSTANCE</code><code>)</code>  </header> <div class="docstring"><i>No docstring provided.</i></div> </article> </li><li> <a name="FLAT-TREE:ITERATOR-INDEX"> </a> <article id="ACCESSOR FLAT-TREE:ITERATOR-INDEX"> <header class="accessor"> <span class="type">accessor</span>  <code>(</code><h4 class="name"><code><a href="#ACCESSOR%20FLAT-TREE%3AITERATOR-INDEX">ITERATOR-INDEX</a></code></h4> <code class="qualifiers"></code> <code class="arguments">INSTANCE</code><code>)</code>  </header> <div class="docstring"><i>No docstring provided.</i></div> </article> </li><li> <a name="FLAT-TREE:ITERATOR-OFFSET"> </a> <article id="ACCESSOR FLAT-TREE:ITERATOR-OFFSET"> <header class="accessor"> <span class="type">accessor</span>  <code>(</code><h4 class="name"><code><a href="#ACCESSOR%20FLAT-TREE%3AITERATOR-OFFSET">ITERATOR-OFFSET</a></code></h4> <code class="qualifiers"></code> <code class="arguments">INSTANCE</code><code>)</code>  </header> <div class="docstring"><i>No docstring provided.</i></div> </article> </li><li> <a name="FLAT-TREE:ITERATOR-STEP-SIZE"> </a> <article id="ACCESSOR FLAT-TREE:ITERATOR-STEP-SIZE"> <header class="accessor"> <span class="type">accessor</span>  <code>(</code><h4 class="name"><code><a href="#ACCESSOR%20FLAT-TREE%3AITERATOR-STEP-SIZE">ITERATOR-STEP-SIZE</a></code></h4> <code class="qualifiers"></code> <code class="arguments">INSTANCE</code><code>)</code>  </header> <div class="docstring"><i>No docstring provided.</i></div> </article> </li><li> <a name="FLAT-TREE:CHILDREN"> </a> <article id="FUNCTION FLAT-TREE:CHILDREN"> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#FUNCTION%20FLAT-TREE%3ACHILDREN">CHILDREN</a></code></h4> <code class="qualifiers"></code> <code class="arguments">INDEX</code><code>)</code>  </header> <div class="docstring"><pre>Returns a list (leftChild rightChild) with the indexes of this element's children.
+If this element does not have any children it returns NIL.</pre></div> </article> </li><li> <a name="FLAT-TREE:COUNTS"> </a> <article id="FUNCTION FLAT-TREE:COUNTS"> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#FUNCTION%20FLAT-TREE%3ACOUNTS">COUNTS</a></code></h4> <code class="qualifiers"></code> <code class="arguments">INDEX</code><code>)</code>  </header> <div class="docstring"><pre>Returns how many nodes (including parent nodes) a tree contains.</pre></div> </article> </li><li> <a name="FLAT-TREE:DEPTH"> </a> <article id="FUNCTION FLAT-TREE:DEPTH"> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#FUNCTION%20FLAT-TREE%3ADEPTH">DEPTH</a></code></h4> <code class="qualifiers"></code> <code class="arguments">INDEX</code><code>)</code>  </header> <div class="docstring"><pre>Returns the depth of an index.</pre></div> </article> </li><li> <a name="FLAT-TREE:FULL-ROOTS"> </a> <article id="FUNCTION FLAT-TREE:FULL-ROOTS"> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#FUNCTION%20FLAT-TREE%3AFULL-ROOTS">FULL-ROOTS</a></code></h4> <code class="qualifiers"></code> <code class="arguments">INDEX</code><code>)</code>  </header> <div class="docstring"><pre>Returns a list of all the full roots (subtrees where all nodes have either 2 or 0 children) &lt; index.
+
+For example (full-roots 8) returns (3), since the subtree rooted at 3 spans 0 -&gt; 6 and the tree rooted at 7 has a child located at 9 which is &gt;= 8.</pre></div> </article> </li><li> <a name="FLAT-TREE:INDEX"> </a> <article id="FUNCTION FLAT-TREE:INDEX"> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#FUNCTION%20FLAT-TREE%3AINDEX">INDEX</a></code></h4> <code class="qualifiers"></code> <code class="arguments">DEPTH OFFSET</code><code>)</code>  </header> <div class="docstring"><pre>Returns an array index for the tree element at the given depth and offset.</pre></div> </article> </li><li> <a name="FLAT-TREE:ITERATOR-IS-LEFT?"> </a> <article id="FUNCTION FLAT-TREE:ITERATOR-IS-LEFT?"> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#FUNCTION%20FLAT-TREE%3AITERATOR-IS-LEFT%3F">ITERATOR-IS-LEFT?</a></code></h4> <code class="qualifiers"></code> <code class="arguments">ITER</code><code>)</code>  </header> <div class="docstring"><pre>Is the iterator at a left sibling?</pre></div> </article> </li><li> <a name="FLAT-TREE:ITERATOR-IS-RIGHT?"> </a> <article id="FUNCTION FLAT-TREE:ITERATOR-IS-RIGHT?"> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#FUNCTION%20FLAT-TREE%3AITERATOR-IS-RIGHT%3F">ITERATOR-IS-RIGHT?</a></code></h4> <code class="qualifiers"></code> <code class="arguments">ITER</code><code>)</code>  </header> <div class="docstring"><pre>Is the iterator at a right sibling?</pre></div> </article> </li><li> <a name="FLAT-TREE:ITERATOR-LEFT-CHILD"> </a> <article id="FUNCTION FLAT-TREE:ITERATOR-LEFT-CHILD"> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#FUNCTION%20FLAT-TREE%3AITERATOR-LEFT-CHILD">ITERATOR-LEFT-CHILD</a></code></h4> <code class="qualifiers"></code> <code class="arguments">ITER</code><code>)</code>  </header> <div class="docstring"><pre>Move the iterator to its left child. No change if there is no child.</pre></div> </article> </li><li> <a name="FLAT-TREE:ITERATOR-LEFT-SPAN"> </a> <article id="FUNCTION FLAT-TREE:ITERATOR-LEFT-SPAN"> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#FUNCTION%20FLAT-TREE%3AITERATOR-LEFT-SPAN">ITERATOR-LEFT-SPAN</a></code></h4> <code class="qualifiers"></code> <code class="arguments">ITER</code><code>)</code>  </header> <div class="docstring"><pre>Move the iterator to the current left span index.</pre></div> </article> </li><li> <a name="FLAT-TREE:ITERATOR-NEXT"> </a> <article id="FUNCTION FLAT-TREE:ITERATOR-NEXT"> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#FUNCTION%20FLAT-TREE%3AITERATOR-NEXT">ITERATOR-NEXT</a></code></h4> <code class="qualifiers"></code> <code class="arguments">ITER</code><code>)</code>  </header> <div class="docstring"><pre>Move one step right across the tree, at the current depth.</pre></div> </article> </li><li> <a name="FLAT-TREE:ITERATOR-P"> </a> <article id="FUNCTION FLAT-TREE:ITERATOR-P"> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#FUNCTION%20FLAT-TREE%3AITERATOR-P">ITERATOR-P</a></code></h4> <code class="qualifiers"></code> <code class="arguments">OBJECT</code><code>)</code>  </header> <div class="docstring"><i>No docstring provided.</i></div> </article> </li><li> <a name="FLAT-TREE:ITERATOR-PARENT"> </a> <article id="FUNCTION FLAT-TREE:ITERATOR-PARENT"> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#FUNCTION%20FLAT-TREE%3AITERATOR-PARENT">ITERATOR-PARENT</a></code></h4> <code class="qualifiers"></code> <code class="arguments">ITER</code><code>)</code>  </header> <div class="docstring"><pre>Move the iterator to its parent.</pre></div> </article> </li><li> <a name="FLAT-TREE:ITERATOR-PREV"> </a> <article id="FUNCTION FLAT-TREE:ITERATOR-PREV"> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#FUNCTION%20FLAT-TREE%3AITERATOR-PREV">ITERATOR-PREV</a></code></h4> <code class="qualifiers"></code> <code class="arguments">ITER</code><code>)</code>  </header> <div class="docstring"><pre>Move one step left across the tree, at the current depth.</pre></div> </article> </li><li> <a name="FLAT-TREE:ITERATOR-RIGHT-CHILD"> </a> <article id="FUNCTION FLAT-TREE:ITERATOR-RIGHT-CHILD"> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#FUNCTION%20FLAT-TREE%3AITERATOR-RIGHT-CHILD">ITERATOR-RIGHT-CHILD</a></code></h4> <code class="qualifiers"></code> <code class="arguments">ITER</code><code>)</code>  </header> <div class="docstring"><pre>Move the iterator to its right child. No change if there is no child.</pre></div> </article> </li><li> <a name="FLAT-TREE:ITERATOR-RIGHT-SPAN"> </a> <article id="FUNCTION FLAT-TREE:ITERATOR-RIGHT-SPAN"> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#FUNCTION%20FLAT-TREE%3AITERATOR-RIGHT-SPAN">ITERATOR-RIGHT-SPAN</a></code></h4> <code class="qualifiers"></code> <code class="arguments">ITER</code><code>)</code>  </header> <div class="docstring"><pre>Move the iterator to the current right span index.</pre></div> </article> </li><li> <a name="FLAT-TREE:ITERATOR-SEEK"> </a> <article id="FUNCTION FLAT-TREE:ITERATOR-SEEK"> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#FUNCTION%20FLAT-TREE%3AITERATOR-SEEK">ITERATOR-SEEK</a></code></h4> <code class="qualifiers"></code> <code class="arguments">ITER INDEX</code><code>)</code>  </header> <div class="docstring"><pre>Move the iterator to a specific index.</pre></div> </article> </li><li> <a name="FLAT-TREE:LEFT-SPAN"> </a> <article id="FUNCTION FLAT-TREE:LEFT-SPAN"> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#FUNCTION%20FLAT-TREE%3ALEFT-SPAN">LEFT-SPAN</a></code></h4> <code class="qualifiers"></code> <code class="arguments">INDEX</code><code>)</code>  </header> <div class="docstring"><pre>Returns the left spanning in index in the tree index spans.</pre></div> </article> </li><li> <a name="FLAT-TREE:MAKE-ITERATOR"> </a> <article id="FUNCTION FLAT-TREE:MAKE-ITERATOR"> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#FUNCTION%20FLAT-TREE%3AMAKE-ITERATOR">MAKE-ITERATOR</a></code></h4> <code class="qualifiers"></code> <code class="arguments">&amp;KEY ((:INDEX INDEX) 0) ((:STEP-SIZE STEP-SIZE) 2) ((:OFFSET OFFSET) 0)
+ ((:DEPTH DEPTH) 0)</code><code>)</code>  </header> <div class="docstring"><i>No docstring provided.</i></div> </article> </li><li> <a name="FLAT-TREE:OFFSET"> </a> <article id="FUNCTION FLAT-TREE:OFFSET"> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#FUNCTION%20FLAT-TREE%3AOFFSET">OFFSET</a></code></h4> <code class="qualifiers"></code> <code class="arguments">INDEX</code><code>)</code>  </header> <div class="docstring"><pre>Returns the offset of an index.</pre></div> </article> </li><li> <a name="FLAT-TREE:PARENT"> </a> <article id="FUNCTION FLAT-TREE:PARENT"> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#FUNCTION%20FLAT-TREE%3APARENT">PARENT</a></code></h4> <code class="qualifiers"></code> <code class="arguments">INDEX</code><code>)</code>  </header> <div class="docstring"><pre>Returns the index of the parent element in tree.</pre></div> </article> </li><li> <a name="FLAT-TREE:RIGHT-SPAN"> </a> <article id="FUNCTION FLAT-TREE:RIGHT-SPAN"> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#FUNCTION%20FLAT-TREE%3ARIGHT-SPAN">RIGHT-SPAN</a></code></h4> <code class="qualifiers"></code> <code class="arguments">INDEX</code><code>)</code>  </header> <div class="docstring"><pre>Returns the right spanning in index in the tree index spans.</pre></div> </article> </li><li> <a name="FLAT-TREE:SIBLING"> </a> <article id="FUNCTION FLAT-TREE:SIBLING"> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#FUNCTION%20FLAT-TREE%3ASIBLING">SIBLING</a></code></h4> <code class="qualifiers"></code> <code class="arguments">INDEX</code><code>)</code>  </header> <div class="docstring"><pre>Returns the index of this element's sibling.</pre></div> </article> </li><li> <a name="FLAT-TREE:SPANS"> </a> <article id="FUNCTION FLAT-TREE:SPANS"> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#FUNCTION%20FLAT-TREE%3ASPANS">SPANS</a></code></h4> <code class="qualifiers"></code> <code class="arguments">INDEX</code><code>)</code>  </header> <div class="docstring"><pre>Returns the range (inclusive) that the tree rooted at 'index' spans.
+For example (spans 3) would return (0 6).</pre></div> </article> </li></ul> </li></ul> </article>  </main> </body> </html> 

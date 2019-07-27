@@ -3,6 +3,10 @@
 Map a binary tree to a list. Common Lisp implementation, adapted from
 [mafintosh/flat-tree](https://github.com/mafintosh/flat-tree).
 
+## API
+
+- [Documentation](./api.html)
+
 ## Usage
 ```lisp
 > (flat-tree:parent 0)
