@@ -86,3 +86,27 @@
             (decf index factor)
             (setf factor 1)))
     (nreverse result)))
+
+(defstruct iterator
+  (index 0)
+  (step-size 2)
+  (offset 0)
+  (depth 0))
+
+(defun iterator-next (iter)
+  (incf (iterator-index iter) (iterator-step-size iter))
+  (incf (iterator-offset iter)))
+
+(defun iterator-prev (iter)
+  (when (> (iterator-offset iter) 0)
+    (decf (iterator-index iter) (iterator-step-size iter))
+    (decf (iterator-offset iter))))
+  
+(defun iterator-seek (iter index)
+  (setf (iterator-index iter) index)
+  (setf (iterator-step-size iter) (step-size (depth index)))
+  (setf (iterator-offset iter) (offset index))
+  (setf (iterator-depth iter) (depth index)))
+
+(defun iterator-parent (iter)
+  )
